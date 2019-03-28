@@ -1,3 +1,39 @@
+/*
+
+
+  _____     ______            
+ |  __ \   |___  /            
+ | |  | |_ __ / / ___________ 
+ | |  | | '__/ / |_  /_  / __|
+ | |__| | | / /__ / / / /\__ \
+ |_____/|_|/_____/___/___|___/
+                              
+                              
+
+__________              .__        _____          __                         __  .__               
+\______   \_______ __ __|  |__    /  _  \  __ ___/  |_  ____   _____ _____ _/  |_|__| ____   ____  
+ |    |  _/\_  __ \  |  \  |  \  /  /_\  \|  |  \   __\/  _ \ /     \\__  \\   __\  |/  _ \ /    \ 
+ |    |   \ |  | \/  |  /   Y  \/    |    \  |  /|  | (  <_> )  Y Y  \/ __ \|  | |  (  <_> )   |  \
+ |______  / |__|  |____/|___|  /\____|__  /____/ |__|  \____/|__|_|  (____  /__| |__|\____/|___|  /
+        \/                   \/         \/                         \/     \/                    \/ 
+
+
+  Thanks much to @corbanmailloux for providing a great framework for implementing flash/fade with HomeAssistant https://github.com/corbanmailloux/esp-mqtt-rgb-led
+
+  To use this code you will need the following dependancies:
+
+  - Support for the ESP8266 boards.
+        - You can add it to the board manager by going to File -> Preference and pasting http://arduino.esp8266.com/stable/package_esp8266com_index.json into the Additional Board Managers URL field.
+        - Next, download the ESP8266 dependancies by going to Tools -> Board -> Board Manager and searching for ESP8266 and installing it.
+
+  - You will also need to download the follow libraries by going to Sketch -> Include Libraries -> Manage Libraries
+      - FastLED
+      - PubSubClient
+      - ArduinoJSON
+      
+https://www.youtube.com/watch?v=6Y6jUM1OaYM
+
+*/
 
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
@@ -22,9 +58,9 @@ int OTAport = 8266;
 /************ FastLED Defintions ******************/
 
 #define DATA_PIN    D4 //on the NodeMCU 1.0, FastLED will default to the D5 pin after throwing an error during compiling. Leave as is. 
-#define LED_TYPE    WS2811 //change to match your LED type WS2812
+#define LED_TYPE    ws2812B  //change to match your LED type WS2812
 #define COLOR_ORDER RGB //change to match your LED configuration // RGB for 2811's | GRB for 2812's //
-#define NUM_LEDS    175 //change to match your setup
+#define NUM_LEDS    57 //change to match your setup
 
 ///////////////DrZzs Palettes for custom BPM effects//////////////////////////
 ///////////////Add any custom palettes here//////////////////////////////////
